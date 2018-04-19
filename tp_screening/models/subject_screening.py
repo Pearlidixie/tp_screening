@@ -1,9 +1,15 @@
 from django.db import models
 from edc_constants.choices import GENDER, YES_NO, YES_NO_NA
+from _datetime import datetime
 
 
 class SubjectScreening(models.Model):
-    print("models")
+    
+    report_datetime = models.DateTimeField(
+        verbose_name='Report Date and Time',
+        default=datetime.now(),
+        help_text='Date and time of report.')
+    
     gender = models.CharField(
         max_length=10,
         choices=GENDER)
