@@ -1,7 +1,9 @@
 from django.contrib import admin
-import tp_screening
+from tp_screening.models.subject_screening import SubjectScreening
+#from tp_screening.admin_site import tp_screening_admin
 
 
+#@admin.register(SubjectScreening, site=tp_screening_admin)
 class SubjectScreeningAdmin(admin.ModelAdmin):
 
     radio_fields = {
@@ -30,4 +32,4 @@ class SubjectScreeningAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(tp_screening, SubjectScreeningAdmin)
+admin.site.register(SubjectScreening, SubjectScreeningAdmin)
