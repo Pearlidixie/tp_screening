@@ -19,6 +19,7 @@ class SubjectScreeningAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': (
+                'report_datetime',
                 'gender',
                 'is_citizen',
                 'is_married_citizen',
