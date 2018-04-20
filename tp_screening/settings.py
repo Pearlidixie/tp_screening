@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tp_screening.apps.Tp_ScreeningConfig',
+    'tp_screening.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
