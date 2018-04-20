@@ -1,5 +1,5 @@
 from django.db import models
-from edc_constants.choices import GENDER, YES_NO, YES_NO_NA
+from ..choices import GENDER, YES_NO, YES_NO_NA
 from _datetime import datetime
 
 
@@ -47,6 +47,3 @@ class SubjectScreening(models.Model):
         verbose_name="If minor, is there a guardian available?",
         max_length=10,
         choices=YES_NO_NA)
-
-    def __str__(self):
-        return self.name
