@@ -1,0 +1,25 @@
+sudo: true
+python:
+- 3.6
+addons:
+  apt_packages:
+  - libcups2-dev
+  hostname: training
+services:
+- mysql
+branches:
+  only:
+  - develop
+install:
+- pip install --upgrade pip
+- pip install -e .
+- pip install -r requirements.txt
+- pip install coveralls
+- pip install flake8
+before_script:
+- flake8 tp-screening
+- mysql -e 'create database edc character set utf8;'
+script:
+- coverage run --source=tp_screening manage.py test
+after_success:
+- coveralls
