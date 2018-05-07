@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from tp_screening.citizen_evaluator import CitizenEvaluator
-from edc_constants.constants import YES, NO
+from ..constants import YES, NO
 
 
 class TestCitizenEvaluator(TestCase):
