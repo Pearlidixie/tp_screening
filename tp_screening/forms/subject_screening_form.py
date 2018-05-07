@@ -1,6 +1,6 @@
 from ..models import SubjectScreening
+from ..subject_screening_form_validator import SubjectScreeningFormValidator
 from django import forms
-from tp_subject_form_validators.form_validators.subject_screening import SubjectScreeningFormValidator
 from edc_form_validators import FormValidatorMixin
 
 
