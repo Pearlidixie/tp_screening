@@ -1,14 +1,16 @@
 from django.test import TestCase
 
 from tp_screening.literacy_evaluator import LiteracyEvaluator
-from edc_constants.constants import YES, NO
+from ..constants import YES, NO, NOT_APPLICABLE
 
 
 class TestLiteracyEvaluator(TestCase):
 
     def test_literacy_evaluator_literate(self):
         """Participant is literate"""
-        literacy_eval = LiteracyEvaluator(is_literate=YES)
+        literacy_eval = LiteracyEvaluator(is_literate=YES,
+                                          literate_witness_avail=
+                                          NOT_APPLICABLE)
         self.assertTrue(literacy_eval.eligible)
 
     def test_not_literate_no_literate_witness(self):
@@ -20,7 +22,8 @@ class TestLiteracyEvaluator(TestCase):
     def test_not_literate_literate_witness_none(self):
         """Participant not literate and literate witness is None"""
         literacy_eval = LiteracyEvaluator(is_literate=NO,
-                                          literate_witness_avail=None)
+                                          literate_witness_avail=
+                                          NOT_APPLICABLE)
         self.assertFalse(literacy_eval.eligible)
 
     def test_not_literate_witness_available(self):
