@@ -20,8 +20,6 @@ install:
 - pip install -q -r requirements.txt
 before_script:
 - flake8 tp-screening
-- python manage.py makemigrations
-- python manage.py migrate
 - mysql -e 'create database edc character set utf8;'
 script:
 - coverage run --source=tp_screening manage.py test
