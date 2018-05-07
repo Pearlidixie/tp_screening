@@ -34,6 +34,8 @@ class SubjectScreeningAdmin(admin.ModelAdmin):
         }),
 
     )
+    list_display = ['screening_identifier', 'gender', 'age_in_years',
+                    'eligible', 'reasons_ineligible']
 
 
 admin.site.register(SubjectScreening, SubjectScreeningAdmin)
