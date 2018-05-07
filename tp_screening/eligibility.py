@@ -59,13 +59,16 @@ class Eligibility:
                         self.reasons_ineligible.update({k: k})
             if not self.literacy_evaluator.eligible:
                 self.reasons_ineligible.update(
-                    is_literate=f"{' and '.join(self.literacy_evaluator.reasons_ineligible)}.")
+                    is_literate=
+                    f"{' and '.join(self.literacy_evaluator.reasons_ineligible)}")
             if not self.citizen_evaluator.eligible:
                 self.reasons_ineligible.update(
-                    is_citizen=f"{' and '.join(self.citizen_evaluator.reasons_ineligible)}.")
+                    is_citizen=
+                    f"{' and '.join(self.citizen_evaluator.reasons_ineligible)}")
             if not self.minor_evaluator.eligible:
                 self.reasons_ineligible.update(
-                    is_minor=f"{' and '.join(self.minor_evaluator.reasons_ineligible)}.")
+                    is_minor=
+                    f"{' and '.join(self.minor_evaluator.reasons_ineligible)}")
 
     def __str__(self):
         return self.eligible
@@ -75,9 +78,7 @@ class Eligibility:
         """Returns a dictionary of custom reasons for named criteria.
         """
         custom_reasons_dict = dict(
-            consent_ability='Not able or unwilling to give ICF.',
-            is_literate='Participant should be literate'
-                        ' or have literate guardian')
+            consent_ability='Not able or unwilling to give ICF')
         for k in custom_reasons_dict:
             if k in custom_reasons_dict and k not in self.criteria:
                 raise EligibilityError(
