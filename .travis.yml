@@ -17,6 +17,7 @@ install:
 - pip install -r requirements.txt
 - pip install coveralls
 - pip install flake8
+- pip install mysqlclient
 before_script:
 - flake8 tp-screening
 - mysql -e 'create database edc character set utf8;'
