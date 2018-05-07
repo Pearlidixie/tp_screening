@@ -1,4 +1,5 @@
-from edc_constants.constants import YES, NO
+from .constants import YES, NO
+from tp_screening.constants import NOT_APPLICABLE
 
 
 class CitizenEvaluator:
@@ -18,13 +19,12 @@ class CitizenEvaluator:
         if not self.eligible:
             self.reasons_ineligible = []
             if(is_citizen == NO and is_married_citizen == NO
-               and marriage_proof == NO):
+               and marriage_proof == NOT_APPLICABLE):
                 self.reasons_ineligible.append(
-                    'participant must be a citizen or '
-                    'married to a citizen and have proof of marriage')
-            if(is_citizen == NO and is_married_citizen == NO
-               and marriage_proof == YES):
-                self.reasons_ineligible.append(
-                    'participant must be a citizen or '
-                    'married to a citizen and have proof of marriage'
-                    ' to a motswana citizen')
+                    'participant not a citizen and no married'
+                    ' to a citizen')
+#             if(is_citizen == NO and is_married_citizen == NO
+#                and marriage_proof == YES):
+#                 self.reasons_ineligible.append(
+#                     'participant must be a citizen or married to a citizen'
+#                     ' and have proof of marriage to a motswana citizen')

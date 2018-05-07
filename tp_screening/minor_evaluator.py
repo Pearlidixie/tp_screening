@@ -1,4 +1,4 @@
-from edc_constants.constants import YES, NO
+from .constants import YES, NO, NOT_APPLICABLE
 
 
 class MinorEvaluator:
@@ -6,7 +6,7 @@ class MinorEvaluator:
     """
 
     def __init__(
-            self, age_in_years, guardian_available, **kwargs):
+            self, age_in_years=None, guardian_available=None, **kwargs):
         self.eligible = False
         self.reasons_ineligible = None
         if age_in_years < 18 and guardian_available == YES:
@@ -18,6 +18,6 @@ class MinorEvaluator:
             if age_in_years < 18 and guardian_available == NO:
                 self.reasons_ineligible.append(
                     'participant is a minor and no guardian is available')
-            if age_in_years < 18 and guardian_available is None:
+            if age_in_years < 18 and guardian_available == NOT_APPLICABLE:
                 self.reasons_ineligible.append(
                     'participant is a minor and no guardian is available')
