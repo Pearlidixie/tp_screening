@@ -1,4 +1,4 @@
-from edc_constants.constants import YES, NO
+from .constants import YES, NO, NOT_APPLICABLE
 
 
 class LiteracyEvaluator:
@@ -11,14 +11,14 @@ class LiteracyEvaluator:
         self.reasons_ineligible = None
         if is_literate == NO and literate_witness_avail == YES:
             self.eligible = True
-        elif is_literate == YES:
+        elif is_literate == YES and literate_witness_avail == NOT_APPLICABLE:
             self.eligible = True
         if not self.eligible:
             self.reasons_ineligible = []
             if is_literate == NO and literate_witness_avail == NO:
                 self.reasons_ineligible.append(
                     'not literate and no literate witness')
-            if is_literate == NO and literate_witness_avail is None:
+            if is_literate == NO and literate_witness_avail == NOT_APPLICABLE:
                 self.reasons_ineligible.append(
                     'not literate and literate witness'
                     'should be provided')
