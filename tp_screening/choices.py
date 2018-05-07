@@ -83,8 +83,7 @@ HOW_ACTIVE = (
 YES_NO_NA = (
     ('yes', 'Yes'),
     ('no', 'No'),
-    ('not applicable', 'N/A'),
-    ('don\'t want to answer', 'Don\'t want to answer'),
+    ('N/A', 'NOT_APPLICABLE'),
 )
 
 YES_NO_DONTKNOW = (
