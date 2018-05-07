@@ -1,10 +1,12 @@
 from django.db import models
 from ..choices import GENDER, YES_NO, YES_NO_NA
+from ..constants import NOT_APPLICABLE
 from _datetime import datetime
 from edc_base.model_mixins.base_uuid_model import BaseUuidModel
 from edc_base.sites.site_model_mixin import SiteModelMixin
 from ..subject_screening_eligibility import SubjectScreeningEligibility
 from tp_screening.identifiers import ScreeningIdentifier
+from tp_screening.constants import YES
 
 
 class SubjectScreening(SiteModelMixin, BaseUuidModel):
@@ -38,22 +40,23 @@ class SubjectScreening(SiteModelMixin, BaseUuidModel):
     is_citizen = models.CharField(
         verbose_name="Are you a Botswana citizen?",
         max_length=20,
+        default=YES,
         choices=YES_NO)
 
     is_married_citizen = models.CharField(
-        verbose_name="If not a citizen, are you legally married to a Botswana citizen?",
+        verbose_name="If not a citizen, are you legally married to a"
+                     " Botswana citizen?",
         max_length=20,
-        choices=YES_NO,
-        blank=True,
-        null=True,
+        default=NOT_APPLICABLE,
+        choices=YES_NO_NA,
         help_text='Applies only to non citizens')
 
     marriage_proof = models.CharField(
-        verbose_name="Has the participant produced the marriage certificate, as proof?",
+        verbose_name="[Interviewer] Has the participant produced the marriage"
+                     " certificate, as proof?",
         max_length=20,
-        choices=YES_NO,
-        blank=True,
-        null=True,
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
         help_text='Applies only to non citizens')
 
     is_literate = models.CharField(
@@ -64,22 +67,20 @@ class SubjectScreening(SiteModelMixin, BaseUuidModel):
     literate_witness_avail = models.CharField(
         verbose_name="If illiterate, is there a literate witness available?",
         max_length=20,
-        choices=YES_NO,
-        blank=True,
-        null=True,
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
         help_text='Applies only to participants that are not literate')
 
     guardian_available = models.CharField(
         verbose_name="If minor, is there a guardian available?",
         max_length=20,
-        choices=YES_NO,
-        blank=True,
-        null=True,
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
         help_text='Applies only to minors')
 
     consent_ability = models.CharField(
-        verbose_name='Participant or legal guardian/representative able and '
-                     'willing to give informed consent.',
+        verbose_name='Is the participant or legal guardian/representative able'
+                     'and willing to give informed consent.',
         max_length=5,
         default=None,
         choices=YES_NO,
@@ -99,15 +100,15 @@ class SubjectScreening(SiteModelMixin, BaseUuidModel):
         default=False,
         editable=False)
 
-    """Customize how the model will be referenced. What will show up when 
-       the save button is pressed instead of having modelObject as the
+    """Customize how the model will be referenced. What will show up
+       when the save button is pressed instead of having modelObject as the
        name of the saved object"""
     def __str__(self):
-        return (f'{self.screening_identifier} {self.gender} {self.age_in_years}')
+        return (f'{self.screening_identifier} {self.gender}')
 
     def save(self, *args, **kwargs):
         eligibility_obj = self.eligibility_cls(model_obj=self, allow_none=True)
-        self.eligible = eligibility_obj.eligible #either true or false
+        self.eligible = eligibility_obj.eligible
         if not self.eligible:
             reasons_ineligible = [
                 v for v in eligibility_obj.reasons_ineligible.values() if v]
