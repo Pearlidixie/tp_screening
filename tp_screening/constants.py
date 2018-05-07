@@ -1,0 +1,5 @@
+YES = 'yes'
+NO = 'no'
+MALE = 'male'
+FEMALE = 'female'
+NOT_APPLICABLE = 'N/A'
