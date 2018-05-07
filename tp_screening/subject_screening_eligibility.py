@@ -1,4 +1,4 @@
-from edc_constants.constants import NORMAL, YES, NO
+from .constants import YES, NO
 
 from .eligibility import Eligibility
 
@@ -15,8 +15,11 @@ def if_none(value):
     return value == NO
 
 
-def if_normal(value):
-    return value == NORMAL
+def if_val(value):
+    if value == YES:
+        return True
+    else:
+        return False
 
 
 class SubjectScreeningEligibility:
@@ -31,7 +34,7 @@ class SubjectScreeningEligibility:
             marriage_proof=model_obj.marriage_proof,
             is_literate=model_obj.is_literate,
             literate_witness_avail=model_obj.literate_witness_avail,
-            consent_ability=model_obj.consent_ability
+            consent_ability=if_val(model_obj.consent_ability),
         )
 
         self.eligible = eligibility_obj.eligible
