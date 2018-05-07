@@ -13,11 +13,11 @@ branches:
   - develop
 install:
 - pip install --upgrade pip
-- pip install -e .
-- pip install -r requirements.txt
-- pip install coveralls
 - pip install flake8
+- pip install coveralls
 - pip install mysqlclient
+- pip install -e .
+- pip install -q -r requirements.txt
 before_script:
 - flake8 tp-screening
 - mysql -e 'create database edc character set utf8;'
