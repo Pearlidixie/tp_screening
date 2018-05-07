@@ -34,8 +34,7 @@ class SubjectScreening(SiteModelMixin, BaseUuidModel):
         choices=GENDER)
 
     age_in_years = models.IntegerField(
-        default=None
-        )
+        default=None)
 
     is_citizen = models.CharField(
         verbose_name="Are you a Botswana citizen?",

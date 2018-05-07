@@ -27,14 +27,19 @@ YES_NO = (
 )
 
 TYPE_WORK = (
-    ('occassional or Casual', 'Occassional or Casual employment (piece job)'),
+    ('occassional or Casual',
+     'Occassional or Casual employment (piece job)'),
     ('seasonal employment', 'Seasonal employment'),
-    ('formal wage employment (full-time)', 'Formal wage employment (full-time)'),
-    ('formal wage employment (part-time)', 'Formal wage employment (part-time)'),
+    ('formal wage employment (full-time)',
+     'Formal wage employment (full-time)'),
+    ('formal wage employment (part-time)',
+     'Formal wage employment (part-time)'),
     ('self-employed in agriculture', 'Self-employed in agriculture'),
-    ('self-employed making money, full time', 'Self-employed making money, full time'),
-    ('self-employed making money, part time', 'Self-employed making money, part time'),
-    ('don\'t want to answer', 'Don\'t want to answer'),
+    ('self-employed making money, full time',
+     'Self-employed making money, full time'),
+    ('self-employed making money, part time',
+     'Self-employed making money, part time'),
+    ('don\'t want to answer', 'DNWA'),
     ('other', 'Other'),
 )
 
@@ -42,7 +47,8 @@ WORK_DONE = (
     ('farmer (own land)', 'Farmer (own land)'),
     ('farm work on employers land', 'Farm work on employers land'),
     ('domestic worker', 'Domestic worker'),
-    ('work in bar/ hotel/ guest house/ entertainment venue', 'Work in bar/ hotel/ guest house/ entertainment venue'),
+    ('work in bar/ hotel/ guest house/ entertainment venue',
+     'Work in bar/ hotel/ guest house/ entertainment venue'),
     ('fishing', 'Fishing'),
     ('mining', 'Mining'),
     ('Tourism/game parks', 'Tourism/game parks'),
@@ -68,9 +74,9 @@ SALARY = (
     ('200-499 pula', '200-499 pula'),
     ('500-999 pula', '500-999 pula'),
     ('1000-4999 pula', '1000-4999 pula'),
-    ('5000-10,000 pula','5000-10,000 pula'),
+    ('5000-10,000 pula', '5000-10,000 pula'),
     ('more than 10,000 pula', 'More than 10,000 pula'),
-    ('don\'t want to answer','Don\'t want to answer'),
+    ('don\'t want to answer', 'Don\'t want to answer'),
 )
 
 HOW_ACTIVE = (

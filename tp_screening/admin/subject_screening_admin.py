@@ -1,10 +1,8 @@
 from django.contrib import admin
 from tp_screening.models.subject_screening import SubjectScreening
 from tp_screening.forms.subject_screening_form import SubjectScreeningForm
-#from tp_screening.admin_site import tp_screening_admin
 
 
-#@admin.register(SubjectScreening, site=tp_screening_admin)
 class SubjectScreeningAdmin(admin.ModelAdmin):
     form = SubjectScreeningForm
 
