@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/Pearlidixie/tp_screening.svg?branch=master)](https://travis-ci.org/Pearlidixie/tp_screening)
+[![Build Status](https://travis-ci.org/Pearlidixie/tp_screening.svg?branch=develop)](https://travis-ci.org/Pearlidixie/tp_screening)
