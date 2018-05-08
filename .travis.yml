@@ -4,8 +4,7 @@ python:
 - 3.6
 addons:
   apt_packages:
-  - libcups2-devxy
-
+  - libcups2-dev
 services:
 - mysql
 branches:
